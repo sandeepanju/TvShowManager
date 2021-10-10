@@ -1,0 +1,12 @@
+query showMovieList {
+    movies {
+        edges {
+            node {
+                title
+                releaseDate
+                seasons
+                id
+            }
+        }
+    }
+}

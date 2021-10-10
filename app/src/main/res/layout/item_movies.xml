@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<data>
+    <import type="android.view.View"/>
+    <variable
+        name="data"
+        type="com.example.tvshowmanager.pojo.Movie" />
+</data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{data.title}"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvReleaseDateLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/release_date_text"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+        <TextView
+            android:id="@+id/tvReleaseDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:hint="@string/date_is_not_provided"
+            convertDateToRedableFormat="@{data.releaseDate}"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvReleaseDateLabel"
+            app:layout_constraintStart_toEndOf="@+id/tvReleaseDateLabel" />
+
+        <TextView
+            android:id="@+id/tvSeasonLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/season_label"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvReleaseDateLabel" />
+
+        <TextView
+            android:id="@+id/tvSeason"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{String.valueOf(data.seasons)}"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvSeasonLabel"
+            app:layout_constraintStart_toEndOf="@+id/tvSeasonLabel" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeasonLabel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
